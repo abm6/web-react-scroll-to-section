@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/%E2%80%9Chttp://abm6.github.io/web-react-scroll-to-section/static/css/main.d884c50b.css",
-    "main.js": "/%E2%80%9Chttp://abm6.github.io/web-react-scroll-to-section/static/js/main.d745e0eb.js",
-    "index.html": "/%E2%80%9Chttp://abm6.github.io/web-react-scroll-to-section/index.html"
+    "main.css": "/web-react-scroll-to-section/static/css/main.d884c50b.css",
+    "main.js": "/web-react-scroll-to-section/static/js/main.d745e0eb.js",
+    "index.html": "/web-react-scroll-to-section/index.html"
   },
   "entrypoints": [
     "static/css/main.d884c50b.css",
