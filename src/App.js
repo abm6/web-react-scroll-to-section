@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from 'react';
 import Header from './components/Header.comp';
 import Body from './components/Body.comp';
 import Footer from './components/Footer.comp';
+import Navbar from './components/Navbar.comp';
 
 // find the index whose value is closest to the current scroll position
 const closestIndex = (num, arr) => {
@@ -20,55 +21,34 @@ const closestIndex = (num, arr) => {
 	return index;
 };
 
-function App() {
+const App = () => {
 	const refs = {
 		header: useRef(null),
 		body: useRef(null),
 		footer: useRef(null),
 	};
 
-	const NavBar = () => {
-		const [mySection, setMySection] = useState(0);
+	const [mySection, setMySection] = useState(0);
 
-		const navItems = ['header', 'body', 'footer'];
+	const handleScroll = () => {
+		const offsetHeights = [];
 
-		const handleScroll = () => {
-			const offsetHeights = [];
+		Object.values(refs).forEach((val) => {
+			offsetHeights.push(val.current.offsetTop);
+		});
 
-			Object.values(refs).forEach((val) => {
-				offsetHeights.push(val.current.offsetTop);
-			});
-
-			const position = window.pageYOffset;
-			const activeSectionIndex = closestIndex(position, offsetHeights);
-			setMySection(activeSectionIndex);
-		};
-
-		useEffect(() => {
-			window.addEventListener('scroll', handleScroll);
-
-			return () => {
-				window.removeEventListener('scroll', handleScroll);
-			};
-		}, []);
-
-		return (
-			<nav>
-				<ul>
-					{navItems.map((val, index) => {
-						return (
-							<li
-								key={index}
-								className={mySection === index ? 'active' : ''}
-								onClick={() => scrollToSection(val)}>
-								{val}
-							</li>
-						);
-					})}
-				</ul>
-			</nav>
-		);
+		const position = window.pageYOffset;
+		const activeSectionIndex = closestIndex(position, offsetHeights);
+		setMySection(activeSectionIndex);
 	};
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	});
 
 	const scrollToSection = (sectionName) => {
 		window.scrollTo({
@@ -77,10 +57,9 @@ function App() {
 		});
 	};
 
-
 	return (
 		<div className="container">
-			<NavBar />
+			<Navbar mySection={mySection} scrollToSection={scrollToSection} />
 			<section>
 				<Header ref={refs.header} goToSection={scrollToSection} />
 				<Body ref={refs.body} goToSection={scrollToSection} />
@@ -88,6 +67,6 @@ function App() {
 			</section>
 		</div>
 	);
-}
+};
 
 export default App;
