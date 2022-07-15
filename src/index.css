@@ -18,6 +18,11 @@ ul li {
   cursor: pointer;
 }
 
+ul li.active {
+  font-weight: bolder;
+  color: blue;
+}
+
 button {
   border : 2px solid black;
   padding: 1rem;
@@ -57,4 +62,14 @@ button:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.section-status {
+  position: fixed;
+  bottom: 0;
+
+  border: 1px solid black;
+  padding: 2rem;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.164);
 }
