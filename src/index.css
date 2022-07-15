@@ -16,6 +16,7 @@ ul li {
 
   padding: 0 2rem;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 ul li.active {
