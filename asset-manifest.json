@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/web-react-scroll-to-section/static/css/main.d884c50b.css",
-    "main.js": "/web-react-scroll-to-section/static/js/main.d745e0eb.js",
+    "main.css": "/web-react-scroll-to-section/static/css/main.bef77dcb.css",
+    "main.js": "/web-react-scroll-to-section/static/js/main.b1dca576.js",
     "index.html": "/web-react-scroll-to-section/index.html"
   },
   "entrypoints": [
-    "static/css/main.d884c50b.css",
-    "static/js/main.d745e0eb.js"
+    "static/css/main.bef77dcb.css",
+    "static/js/main.b1dca576.js"
   ]
 }
